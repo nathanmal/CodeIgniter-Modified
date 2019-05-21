@@ -1,0 +1,19 @@
+html, body {
+  width: 100vw;
+  height: 100vh; }
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+body.ci-get-started main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#codeigniter_profiler {
+  width: 100%;
+  margin: 0; }
+

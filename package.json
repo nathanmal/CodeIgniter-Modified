@@ -1,0 +1,53 @@
+{
+  "name": "codeigniterx",
+  "version": "1.0.0",
+  "description": "Codeigniter extended",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config ./assets/src/webpack.config.js --mode development",
+    "build": "webpack --config ./assets/src/webpack.config.js --mode production",
+    "watch": "webpack --config ./assets/src/webpack.config.js --mode development --watch",
+    "cix": "webpack --config ./assets/cix/webpack.config.js --mode development",
+    "cix:watch": "webpack --config ./assets/cix/webpack.config.js --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanmal/CodeIgniterX.git"
+  },
+  "author": "Nathan Malachowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanmal/CodeIgniterX/issues"
+  },
+  "homepage": "https://github.com/nathanmal/CodeIgniterX#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.4",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.32.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  }
+}
