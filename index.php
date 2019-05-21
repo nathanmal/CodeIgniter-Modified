@@ -35,7 +35,6 @@
  * @since	Version 1.0.0
  * @filesource
  */
-
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -88,6 +87,18 @@ switch (ENVIRONMENT)
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
 }
+
+/*
+ *---------------------------------------------------------------
+ * CONFIG PATH
+ *---------------------------------------------------------------
+ *
+ * Path to the environment config file, relative to the front 
+ * controller directory. This is required.
+ */
+	$config_path = '';
+
+
 
 /*
  *---------------------------------------------------------------
@@ -178,6 +189,15 @@ switch (ENVIRONMENT)
  */
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
+
+// Less verbose
+define( 'DSEP', DIRECTORY_SEPARATOR );
+// Get path
+$conf = realpath( dirname(__FILE__) . DSEP . $config_path . DSEP . 'CI_CONFIG.php' );
+// Required
+require_once($conf); 
+// Be safe
+unset($path, $conf, $config_path);
 
 
 // --------------------------------------------------------------------
