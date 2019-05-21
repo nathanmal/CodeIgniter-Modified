@@ -2,16 +2,29 @@
 
 /*
  *---------------------------------------------------------------
- * APPLICATION DOMAIN & BASEURL
+ * ENVIRONMENTAL CONSTANTS
  *---------------------------------------------------------------
  *
  * Path to the environment config file, relative to the front 
  * controller directory. This is required.
  */
+define('CI_API',    php_sapi_name() );
+define('CI_CLI',    CI_API === 'cli' );
+define('CI_DEBUG',  TRUE );
+
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DOMAIN SETTINGS
+ *---------------------------------------------------------------
+ *
+ * Path to the environment config file, relative to the front 
+ * controller directory. This is required.
+ */
+
 define('CI_DOMAIN',     'project');
 define('CI_PROTOCOL',   (! empty($_SERVER['HTTPS']) ? 'https' : 'http'));
-define('CI_HOST',       $_SERVER['HTTP_HOST']);
-define('CI_PORT',       $_SERVER['SERVER_PORT']);
+define('CI_HOST',       CI_CLI ? '' : $_SERVER['HTTP_HOST']);
+define('CI_PORT',       CI_CLI ? '' : $_SERVER['SERVER_PORT']);
 define('CI_BASEURL',    CI_PROTOCOL . '://' . CI_HOST );
 
 /*
@@ -29,7 +42,7 @@ define('CI_DB_NAME',    '');
 
 /*
  *---------------------------------------------------------------
- * USE COMPOSER
+ * COMPOSER
  *---------------------------------------------------------------
  *
  * Path to the environment config file, relative to the front 
@@ -70,7 +83,6 @@ define('CI_SSL_KEY',     '' );
  */
 define('CI_DATE_FORMAT', 'Y-m-d H:i:s');
 
-
 /*
  *---------------------------------------------------------------
  * CACHE SETTINGS
@@ -84,7 +96,7 @@ define('CI_CACHE_PATH', '');
 
 /*
  *---------------------------------------------------------------
- * Logging SETTINGS
+ * LOG SETTINGS
  *---------------------------------------------------------------
  *
  * Path to the cache directory
