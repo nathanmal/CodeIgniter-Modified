@@ -1,6 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 class View
 { 
     /**
@@ -24,6 +23,10 @@ class View
     public function __construct( $path = '', $data = array() )
     {
       $this->ci =& get_instance();
+
+      if( $path ) $this->path = $path;
+
+      if( ! empty($data) ) $this->data = $data;
     }
 
     /**
@@ -32,12 +35,30 @@ class View
      */
     public function __toString()
     {
-      $this->render();
+      return $this->render(TRUE);
     }
 
+    /**
+     * Set view data
+     * @param [type] $key   [description]
+     * @param [type] $value [description]
+     */
+    public function set( $key, $value )
+    {
+      $this->data[$key] = $value;
+    }
+
+    /**
+     * Merge view data
+     * @param  array  $data [description]
+     * @return [type]       [description]
+     */
     public function merge( $data = array() )
     {
-
+      if( is_array($data) ) 
+      {
+        $this->data = array_merge_deep( $this->data, $data );
+      }
     }
 
     /**
@@ -47,7 +68,10 @@ class View
      */
     public function render( $return = FALSE )
     {
-      $this->ci->load->view( $this->path, $thid->data );
+      // If returning output as a string
+      if($return) return $this->ci->load->view( $this->path, $this->data, TRUE );
+      // Otherwise output to browser/stdout
+      $this->ci->load->view( $this->path, $this->data );
     }
 
 }

@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once BASEPATH . 'core/Model.php';
 
 class Model extends CI_Model
 {
