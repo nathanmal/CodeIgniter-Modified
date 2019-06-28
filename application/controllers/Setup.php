@@ -1,9 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends Controller {
+class Setup extends Controller {
 
 	/**
-	 * Index Page for this controller.
+	 * Default setup page for a blank installation
+	 *
+	 * 
 	 *
 	 * Maps to the following URL
 	 * 		http://example.com/index.php/welcome
